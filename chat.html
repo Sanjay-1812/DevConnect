@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="styles.css">
+<body>
+
+<h2>Chat</h2>
+
+<div id="chatBox"></div>
+<input id="msg">
+<button onclick="send()">Send</button>
+
+<script>
+function send(){
+var m=document.getElementById("msg").value;
+if(m!=""){
+document.getElementById("chatBox").innerHTML+="<p>"+m+"</p>";
+}
+}
+</script>
+
+</body>

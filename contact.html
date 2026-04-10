@@ -1,0 +1,151 @@
+<link rel="stylesheet" href="styles.css">
+<body>
+
+<h2>Contact & Collaboration</h2>
+
+<p>Fill the form below to collaborate, ask queries, or connect with our team.</p>
+
+<form onsubmit="return validate()">
+
+<fieldset>
+<legend>Personal Details</legend>
+
+<label>Full Name</label>
+<input type="text" id="name" placeholder="Enter your name">
+
+<label>Email</label>
+<input type="text" id="email" placeholder="Enter your email">
+
+<label>Phone</label>
+<input type="text" id="phone" placeholder="Enter phone number">
+
+<label>Date of Birth</label>
+<input type="date" id="dob">
+
+</fieldset>
+
+<fieldset>
+<legend>Professional Details</legend>
+
+<label>Your Role</label>
+<select id="role">
+<option value="">Select</option>
+<option>Student</option>
+<option>Frontend Developer</option>
+<option>Backend Developer</option>
+<option>Full Stack Developer</option>
+</select>
+
+<label>Preferred Technology</label>
+<input list="tech" id="techInput">
+<datalist id="tech">
+<option value="HTML">
+<option value="CSS">
+<option value="JavaScript">
+<option value="React">
+<option value="Python">
+</datalist>
+</fieldset>
+
+<fieldset>
+<legend>Experience Level</legend>
+
+<div class="option">
+<input type="radio" name="exp" value="Beginner">
+<label>Beginner</label>
+</div>
+
+<div class="option">
+<input type="radio" name="exp" value="Intermediate">
+<label>Intermediate</label>
+</div>
+
+<div class="option">
+<input type="radio" name="exp" value="Advanced">
+<label>Advanced</label>
+</div>
+
+</fieldset>
+
+<fieldset>
+<legend>Interests</legend>
+
+<div class="option">
+<input type="checkbox" value="Projects">
+<label>Work on Projects</label>
+</div>
+
+<div class="option">
+<input type="checkbox" value="Collaboration">
+<label>Collaboration</label>
+</div>
+
+<div class="option">
+<input type="checkbox" value="Learning">
+<label>Learning</label>
+</div>
+
+<div class="option">
+<input type="checkbox" value="Mentorship">
+<label>Mentorship</label>
+</div>
+
+</fieldset>
+
+<fieldset>
+<legend>Message</legend>
+
+<label>Your Message</label>
+<textarea id="message" placeholder="Write your message here"></textarea>
+
+<label>Upload Resume</label>
+<input type="file" id="file">
+
+</fieldset>
+
+<br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+<script>
+function validate(){
+var name=document.getElementById("name").value;
+var email=document.getElementById("email").value;
+var phone=document.getElementById("phone").value;
+var role=document.getElementById("role").value;
+var message=document.getElementById("message").value;
+
+if(name==""||email==""||phone==""||role==""||message==""){
+alert("Please fill all required fields");
+return false;
+}
+
+if(email.indexOf("@")==-1 || email.indexOf(".")==-1){
+alert("Enter valid email");
+return false;
+}
+
+if(isNaN(phone) || phone.length<10){
+alert("Enter valid phone number");
+return false;
+}
+
+var exp=document.getElementsByName("exp");
+var selected=false;
+
+for(var i=0;i<exp.length;i++){
+if(exp[i].checked){
+selected=true;
+}}
+if(!selected){
+alert("Select experience level");
+return false;
+}
+
+alert("Form submitted successfully!");
+return true;
+}
+</script>
+</body>

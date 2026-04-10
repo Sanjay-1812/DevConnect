@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="styles.css">
+<body>
+
+<h2>Projects</h2>
+
+<div id="list"></div>
+<div id="details"></div>
+
+<table id="ptable">
+<tr><th>Project</th><th>Type</th><th>Status</th></tr>
+<tr onclick="show(0)"><td>Portfolio Website</td><td>Frontend</td><td>Active</td></tr>
+<tr onclick="show(1)"><td>Chat Application</td><td>UI</td><td>Active</td></tr>
+<tr onclick="show(2)"><td>E-commerce UI</td><td>Frontend</td><td>Completed</td></tr>
+<tr onclick="show(3)"><td>Task Manager</td><td>Productivity</td><td>Active</td></tr>
+<tr onclick="show(4)"><td>Developer Blog</td><td>Content</td><td>Active</td></tr>
+</table>
+
+<script>
+var titles=[
+"Portfolio Website",
+"Chat Application",
+"E-commerce UI",
+"Task Manager",
+"Developer Blog"
+];
+
+var desc=[
+"A modern portfolio website designed to showcase developer skills, projects, and achievements. It includes responsive design and clean UI. The platform helps developers present their work professionally. It supports customization and personal branding.",
+
+"A real-time chat application interface for seamless communication. It allows users to send messages instantly and collaborate. The UI focuses on clarity and usability. It can be expanded into a full real-time system.",
+
+"A complete e-commerce interface simulating an online store. It includes product listings and navigation. The design ensures smooth user experience. It demonstrates modern shopping platform structure.",
+
+"A task management system for organizing daily work. It improves productivity and workflow. The interface is simple and effective. It helps users manage time efficiently.",
+
+"A blogging platform for developers to share knowledge. It supports reading and writing content. The UI focuses on readability. It encourages learning and sharing ideas."
+];
+
+var list="";
+for(var i=0;i<titles.length;i++){
+list+="<div class='card' onclick='show("+i+")'><b>"+titles[i]+"</b><br><small>Click to view details</small></div>";
+}
+document.getElementById("list").innerHTML=list;
+
+function show(i){
+document.getElementById("list").style.display="none";
+document.getElementById("ptable").style.display="none";
+
+document.getElementById("details").innerHTML=
+"<h2>"+titles[i]+"</h2>"+
+"<p>"+desc[i]+"</p>"+
+"<button onclick='sendReq()'>Contribute</button><br><br>"+
+"<button onclick='back()'>Back</button>";
+}
+
+function back(){
+document.getElementById("list").style.display="block";
+document.getElementById("ptable").style.display="table";
+document.getElementById("details").innerHTML="";
+}
+
+function sendReq(){
+alert("Request sent");
+}
+</script>
+
+</body>
